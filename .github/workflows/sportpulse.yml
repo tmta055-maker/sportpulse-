@@ -1,0 +1,19 @@
+name: SportPulse
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  football:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: تحميل الملفات
+        uses: actions/checkout@v4
+
+      - name: تشغيل الأخبار الرياضية
+        run: node news.js
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
