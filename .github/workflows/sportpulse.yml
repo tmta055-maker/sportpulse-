@@ -8,12 +8,10 @@ on:
 jobs:
   football:
     runs-on: ubuntu-latest
-
     steps:
-      - name: تحميل الملفات
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: تشغيل الأخبار الرياضية
+      - name: Run news
         run: node news.js
         env:
           API_KEY: ${{ secrets.API_KEY }}
